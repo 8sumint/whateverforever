@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>whateverforever</title>
+</head>
+<body>
+	<h1>Archive Jobz</h1>
+
+	<table id="navigation" border=1>
+		<tr>
+			<th>Url</th>
+			<th>Status</th>
+			<th></th>
+			<th>Last log</th>
+		</tr>
+	{% for url, job in jobs.items()|reverse %}
+		<tr>
+			<td><code>{{url}}</code></td>
+			<td>{{job.dl.status}}</td>
+			<td><a href="/logs?url={{url}}">logs</a>
+			<td>{{job.logs[-1]}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+</body>
+</html>
